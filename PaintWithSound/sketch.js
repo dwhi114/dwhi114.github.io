@@ -63,7 +63,6 @@ function setup() {
 }
 
 function mousePressed() {
-  playMusic();
   if(mouseX < 45){
     if(mouseY > 5 && mouseY < 45){
       col = red;
@@ -96,6 +95,7 @@ function mousePressed() {
       col = black;
     }
   }
+  playMusic();
 }
 
 function mouseReleased(){
@@ -103,11 +103,6 @@ function mouseReleased(){
   sequence2.stop();
 }
 
-function paint(){
-  stroke(col);
-  strokeWeight(8);
-  line(pmouseX, pmouseY, mouseX, mouseY);
-}
 
 function playMusic(){
   if(col == red || col == orange || col == yellow || col == green || col == blue || col == cyan){
@@ -123,6 +118,12 @@ function playMusic(){
     sequence2.start();
     }
   }
+
+function paint(){
+  stroke(col);
+  strokeWeight(8);
+  line(pmouseX, pmouseY, mouseX, mouseY);
+}
 
 function draw() {
   if(mouseIsPressed){
