@@ -3,11 +3,6 @@ let col, red, orange, yellow, green, cyan, blue, magenta, brown, white, black;
 let melody = ["C4", "A4", "F4", "D4", "G4"]
 let melody2 =["C2", "A2", "F2", "D2", "G2"]
 
-let serialPDM;
-let portName = "COM3";
-
-let sensor;
-
 function preload(){
   synth = new Tone.AMSynth({
     "harmonicity": 3.999,
@@ -65,9 +60,6 @@ function setup() {
   brown = color(119, 67, 21);
   white = color(255, 255, 255);
   black = color(0, 0, 0);
-
-  serialPDM = new PDMSerial(portName);
-  sensor = serialPDM.sensorData;
 }
 
 function mousePressed() {
@@ -114,7 +106,7 @@ function mouseReleased(){
 function paint(){
   stroke(col);
   strokeWeight(8);
-  line(pmouseX, pmouseY, sensor.a0, sensor.a1);
+  line(pmouseX, pmouseY, mouseX, mouseY);
 }
 
 function playMusic(){
